@@ -26,7 +26,7 @@ void MyTcpServer::slotServerRead() {
     QString resp = m_core.parseMessage(data, login);
     if (data.startsWith("auth") && resp.startsWith("auth+"))
         m_logins.insert(s->socketDescriptor(), resp.split('&')[1]);
-    s->write(resp.toUtf8());
+    s->write(("\r\n" + resp + "\r\n").toUtf8());
 }
 
 void MyTcpServer::slotClientDisconnected() {

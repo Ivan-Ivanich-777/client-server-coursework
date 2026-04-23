@@ -41,11 +41,19 @@ QString ServerCore::processCheck(const QStringList &parts, const QString &login)
     return result ? "check+" : "check-";
 }
 
-bool ServerCore::checkTask1(double x, double y) { return (fabs(x) < 1e-6 && fabs(y) < 1e-6); }
+bool ServerCore::checkTask1(double x, double y) {
+    return (fabs(x) < 1e-6 && fabs(y) < 1e-6);
+}
+
 bool ServerCore::checkTask2(double x, double y) {
     double s3 = sqrt(3.0);
-    if (fabs(x + s3/3.0) < 1e-6 && fabs(y + 2*s3/9.0) < 1e-6) return true;
-    if (fabs(x - s3/3.0) < 1e-6 && fabs(y - 2*s3/9.0) < 1e-6) return true;
+    // Максимум: (-sqrt(3)/3, -2*sqrt(3)/9) — ОБА отрицательные
+    if (fabs(x + s3/3.0) < 1e-6 && fabs(y + 2.0*s3/9.0) < 1e-6) return true;
+    // Минимум: (sqrt(3)/3, 2*sqrt(3)/9) — ОБА положительные
+    if (fabs(x - s3/3.0) < 1e-6 && fabs(y - 2.0*s3/9.0) < 1e-6) return true;
     return false;
 }
-bool ServerCore::checkTask3(double x, double y) { return (fabs(x - 1.0) < 1e-6 && fabs(y - 1.0) < 1e-6); }
+
+bool ServerCore::checkTask3(double x, double y) {
+    return (fabs(x - 1.0) < 1e-6 && fabs(y - 1.0) < 1e-6);
+}
