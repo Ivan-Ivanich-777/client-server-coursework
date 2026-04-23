@@ -1,0 +1,1 @@
+﻿@startuml\nclass Server\nclass Client\n@enduml
