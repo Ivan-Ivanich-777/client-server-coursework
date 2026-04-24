@@ -2,7 +2,7 @@
 <ui version="4.0">
  <class>RegForm</class>
  <widget class="QWidget" name="RegForm">
-  <property name="geometry"><rect><x>0</x><y>0</y><width>420</width><height>580</height></rect></property>
+  <property name="geometry"><rect><x>0</x><y>0</y><width>420</width><height>620</height></rect></property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item><spacer name="topSpacer"><property name="orientation"><enum>Qt::Vertical</enum></property></spacer></item>
    <item><widget class="QLabel" name="labelTitle"><property name="text"><string>Create Account</string></property><property name="alignment"><set>Qt::AlignCenter</set></property></widget></item>
@@ -14,6 +14,11 @@
    <item><widget class="QLineEdit" name="lineEditPass2"><property name="echoMode"><enum>QLineEdit::Password</enum></property><property name="placeholderText"><string>Repeat password</string></property></widget></item>
    <item><widget class="QLabel" name="label_4"><property name="text"><string>Email</string></property></widget></item>
    <item><widget class="QLineEdit" name="lineEditEmail"><property name="placeholderText"><string>Enter email</string></property></widget></item>
+   <!-- Поле для кода (скрыто изначально) -->
+   <item><widget class="QLabel" name="labelCode"><property name="text"><string>Verification Code</string></property></widget></item>
+   <item><widget class="QLineEdit" name="lineEditCode"><property name="placeholderText"><string>Enter 6-digit code</string></property></widget></item>
+   <item><widget class="QPushButton" name="btnVerify"><property name="text"><string>Verify Code</string></property></widget></item>
+   <!-- Кнопка регистрации -->
    <item><widget class="QPushButton" name="btnRegister"><property name="text"><string>Register</string></property></widget></item>
    <item><widget class="QPushButton" name="btnBack"><property name="text"><string>← Back to Login</string></property></widget></item>
    <item><widget class="QLabel" name="labelStatus"><property name="text"><string></string></property></widget></item>

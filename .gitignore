@@ -1,4 +1,21 @@
-﻿build-*/
+﻿# Временные файлы Qt Creator
 *.user
-*.db
+*.user.*
+
+# Папки сборки (создаются при компиляции)
+build-*/
+debug/
+release/
+Makefile*
+.qmake.stash
+moc_*.cpp
+ui_*.h
+*.o
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+
+# Doxygen output
 Docs/Doxygen/html/
+Docs/Doxygen/latex/
