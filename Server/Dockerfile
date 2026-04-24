@@ -6,6 +6,6 @@ WORKDIR /root/server/
 COPY *.cpp /root/server/
 COPY *.h /root/server/
 COPY *.pro /root/server/
-RUN qmake Server.pro && make
+RUN qmake echoServer.pro && make
 EXPOSE 33333
-ENTRYPOINT ["./Server"]
+ENTRYPOINT ["./echoServer"]

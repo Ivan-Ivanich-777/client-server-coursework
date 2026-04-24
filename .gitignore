@@ -1,40 +1,4 @@
-﻿# Qt Creator
+﻿build-*/
 *.user
-*.user.*
-build-*/
-Debug/
-Release/
-@"
-@"
-# Qt Creator
-*.user
-*.user.*
-build-*/
-Debug/
-Release/
-
-# База данных
 *.db
-*.sqlite
-*.sqlite3
-
-# Doxygen
 Docs/Doxygen/html/
-Docs/Doxygen/latex/
-
-# Временные файлы
-*.tmp
-*.log
-*.bak
-
-# Архивы
-*.zip
-*.rar
-*.7z
-
-# Docker
-.docker/
-
-# IDE
-.vscode/
-.idea/

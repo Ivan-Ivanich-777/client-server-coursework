@@ -1,0 +1,74 @@
+﻿@startuml
+skinparam backgroundColor #FFFFFF
+skinparam classBackgroundColor #F0F0F0
+
+class MainWindow {
+    -QStackedWidget* m_stack
+    -LoginForm* m_login
+    -RegForm* m_reg
+    -DashboardForm* m_dash
+    +onServerResponse(data)
+}
+
+class LoginForm {
+    -QLineEdit* lineEditLogin
+    -QLineEdit* lineEditPass
+    +handleResponse(data)
+    +retranslate()
+}
+
+class RegForm {
+    -QLineEdit* lineEditLogin
+    -QLineEdit* lineEditPass
+    -QLineEdit* lineEditEmail
+    +handleResponse(data)
+}
+
+class DashboardForm {
+    -QCustomPlot* plot
+    -QSlider* sliderX
+    -QSlider* sliderA
+    -double m_A
+    +rebuildGraph()
+    +f(x, A)
+}
+
+class SocketManager {
+    -QTcpSocket* m_socket
+    +instance()
+    +sendMessage(msg)
+    +connectToServer(host, port)
+}
+
+class MyTcpServer {
+    -QTcpServer* m_server
+    -QMap<int, QTcpSocket*> m_sockets
+    -ServerCore m_core
+    +slotNewConnection()
+    +slotServerRead()
+}
+
+class ServerCore {
+    -DBManager* m_db
+    +parseMessage(msg)
+    +checkTask1(x,y)
+    +checkTask2(x,y)
+    +checkTask3(x,y)
+}
+
+class DBManager {
+    -QSqlDatabase m_db
+    +instance()
+    +registerUser()
+    +authorizeUser()
+    +getUserStats()
+}
+
+MainWindow --> LoginForm
+MainWindow --> RegForm
+MainWindow --> DashboardForm
+DashboardForm --> SocketManager
+SocketManager --> MyTcpServer
+MyTcpServer --> ServerCore
+ServerCore --> DBManager
+@enduml

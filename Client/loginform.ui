@@ -1,1 +1,42 @@
-﻿// Placeholder for loginform.ui
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginForm</class>
+ <widget class="QWidget" name="LoginForm">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>400</width><height>500</height></rect></property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="labelTitle">
+     <property name="text"><string>Sign In</string></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label"><property name="text"><string>Login</string></property></widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="lineEditLogin"><property name="placeholderText"><string>Enter login</string></property></widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_2"><property name="text"><string>Password</string></property></widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="lineEditPass"><property name="echoMode"><enum>QLineEdit::Password</enum></property><property name="placeholderText"><string>Enter password</string></property></widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnLogin"><property name="text"><string>Sign In</string></property></widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnToReg"><property name="text"><string>Create Account</string></property></widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnLang"><property name="text"><string>🌐 English</string></property></widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelStatus"><property name="text"><string></string></property></widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer"><property name="orientation"><enum>Qt::Vertical</enum></property></spacer>
+   </item>
+  </layout>
+ </widget>
+</ui>

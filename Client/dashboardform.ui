@@ -1,1 +1,84 @@
-﻿// Placeholder for dashboardform.ui
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DashboardForm</class>
+ <widget class="QWidget" name="DashboardForm">
+  <layout class="QVBoxLayout" name="mainLayout">
+   <property name="spacing"><number>2</number></property>
+   <property name="leftMargin"><number>0</number></property>
+   <property name="topMargin"><number>0</number></property>
+   <property name="rightMargin"><number>0</number></property>
+   <property name="bottomMargin"><number>2</number></property>
+   <item>
+    <widget class="QCustomPlot" name="plot" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>1</horstretch>
+       <verstretch>1</verstretch>
+      </sizepolicy>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="controlPanel" native="true">
+     <property name="maximumHeight"><number>70</number></property>
+     <layout class="QHBoxLayout" name="controlLayout">
+      <property name="spacing"><number>8</number></property>
+      <property name="leftMargin"><number>8</number></property>
+      <property name="topMargin"><number>4</number></property>
+      <property name="rightMargin"><number>8</number></property>
+      <property name="bottomMargin"><number>4</number></property>
+      <item>
+       <widget class="QLabel" name="labelX"><property name="text"><string>X:</string></property></widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="sliderX">
+        <property name="orientation"><enum>Qt::Horizontal</enum></property>
+        <property name="minimum"><number>-300</number></property>
+        <property name="maximum"><number>400</number></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="spinX">
+        <property name="decimals"><number>2</number></property>
+        <property name="minimum"><double>-3.00</double></property>
+        <property name="maximum"><double>4.00</double></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelA"><property name="text"><string>A:</string></property></widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="sliderA">
+        <property name="orientation"><enum>Qt::Horizontal</enum></property>
+        <property name="minimum"><number>-500</number></property>
+        <property name="maximum"><number>500</number></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="spinA">
+        <property name="decimals"><number>2</number></property>
+        <property name="minimum"><double>-5.00</double></property>
+        <property name="maximum"><double>5.00</double></property>
+        <property name="value"><double>1.00</double></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnCheck">
+        <property name="text"><string>Check</string></property>
+        <property name="minimumSize"><size><width>80</width><height>0</height></size></property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+</ui>
