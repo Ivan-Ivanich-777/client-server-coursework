@@ -66,6 +66,52 @@ void DashboardForm::updateSidePanelStyle() {
     title->setStyleSheet("color: #58a6ff; font-size: 20px; font-weight: bold; padding-bottom: 8px;");
     lay->addWidget(title);
 
+    // ========== ВКЛАДКА "ФУНКЦИЯ" ==========
+    auto makeInfoBtn = [&](const QString& txt, const QString& info) {
+        QPushButton *b = new QPushButton(txt);
+        b->setStyleSheet("QPushButton { text-align: left; padding: 10px; border-radius: 6px; } QPushButton:hover { background-color: #21262d; }");
+        b->setCursor(Qt::PointingHandCursor);
+        connect(b, &QPushButton::clicked, [this, txt, info]() {
+            QMessageBox msg(this);
+            msg.setWindowTitle(txt);
+            msg.setText(info);
+            msg.setIcon(QMessageBox::Information);
+            msg.exec();
+        });
+        lay->addWidget(b);
+        return b;
+    };
+
+    QString funcText;
+    if (g_lang == "ru") {
+        funcText = "f(x) = {\n"
+                   "    x²,              x < 0\n"
+                   "    x³ - 3x,         0 ≤ x < 2\n"
+                   "    x⁴ - 4x³ + 4x²,  x ≥ 2\n"
+                   "}\n\n"
+                   "Особые точки:\n"
+                   "• Минимум x²: (0, 0)\n"
+                   "• Максимум x³-3x: (-√3/3, -2√3/9)\n"
+                   "• Минимум x³-3x: (√3/3, 2√3/9)\n"
+                   "• Перегиб x⁴-4x³+4x²: (1, 1)";
+    } else {
+        funcText = "f(x) = {\n"
+                   "    x²,              x < 0\n"
+                   "    x³ - 3x,         0 ≤ x < 2\n"
+                   "    x⁴ - 4x³ + 4x²,  x ≥ 2\n"
+                   "}\n\n"
+                   "Special points:\n"
+                   "• Min of x²: (0, 0)\n"
+                   "• Max of x³-3x: (-√3/3, -2√3/9)\n"
+                   "• Min of x³-3x: (√3/3, 2√3/9)\n"
+                   "• Inflection of x⁴-4x³+4x²: (1, 1)";
+    }
+    
+    makeInfoBtn("📐 " + t("function"), funcText);
+
+    lay->addSpacing(5);
+
+    // ========== ЦВЕТА ==========
     auto makeMenuBtn = [&](const QString& txt) {
         QPushButton *b = new QPushButton(txt + "  ▾");
         b->setStyleSheet("QPushButton { text-align: left; padding: 10px; border-radius: 6px; } QPushButton:hover { background-color: #21262d; }");
@@ -177,7 +223,6 @@ void DashboardForm::setLanguage(const QString &lang) {
 }
 
 void DashboardForm::toggleTheme() { g_dark = !g_dark; applyStyle(); rebuildGraph(); updatePos(ui->spinX->value()); }
-
 void DashboardForm::changeGraphColor(int idx) {
     QColor c = (idx==1)?m_c1:(idx==2)?m_c2:m_c3;
     QColor nc = QColorDialog::getColor(c, this);
