@@ -2,7 +2,6 @@
 skinparam backgroundColor #FFFFFF
 left to right direction
 actor "User" as U
-actor "Admin" as A
 
 rectangle "Math Solver" {
     usecase "Register" as UC1
