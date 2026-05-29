@@ -1,0 +1,27 @@
+var class_logger =
+[
+    [ "authFail", "class_logger.html#ab017074311cbd0f834bc9f226e03ad2e", null ],
+    [ "authOk", "class_logger.html#aa72875a34d661389d5fa3b4b04172ee3", null ],
+    [ "banner", "class_logger.html#a265c4692f217acfc4113518735ddb9b8", null ],
+    [ "center", "class_logger.html#ab3ecb9177ca7e30ee5a09a8832f1b9bb", null ],
+    [ "clientConnected", "class_logger.html#a788063f9d7ea2fecad964058ee318d71", null ],
+    [ "clientDisconnected", "class_logger.html#ad26aa3daac56e068f5016ce9dbbee60d", null ],
+    [ "codeBox", "class_logger.html#acd2f3f05e67295bbd311542389b8dd91", null ],
+    [ "codeSent", "class_logger.html#a5fc3c9ecf60716ed618a7bc88c1c8456", null ],
+    [ "divider", "class_logger.html#a3ba7f1d63af5ce94da74b362bba9ac64", null ],
+    [ "emailFailed", "class_logger.html#a444865a3f63a76eb6f8a5c8bf26ceab7", null ],
+    [ "emailSent", "class_logger.html#a2253b838d388ac5963fe5a97f575268f", null ],
+    [ "error", "class_logger.html#a288ed9af6f140505af75cbad34f3f160", null ],
+    [ "regCode", "class_logger.html#a303dce3e4acd19546e4b8f1581b50c0e", null ],
+    [ "regFail", "class_logger.html#a8390e1f14e0b69474b6b30b7dcee1f86", null ],
+    [ "regOk", "class_logger.html#ae8693b06e526df5bcc9c19b4db55e150", null ],
+    [ "repeat", "class_logger.html#afb3d7a4d313a2f12e635754901ce0dde", null ],
+    [ "request", "class_logger.html#ab11edb2b1e9f9f25259d339390830d48", null ],
+    [ "resetCode", "class_logger.html#a181710886bfc1414bbf43199d42f1337", null ],
+    [ "resetOk", "class_logger.html#ac6a97e0da392c0eada70afa39162a3aa", null ],
+    [ "response", "class_logger.html#a63583bd7df73787770e61eaf9d68b99d", null ],
+    [ "serverFailed", "class_logger.html#a400a1cd50faf95184ec0da42d660d0ca", null ],
+    [ "serverStarted", "class_logger.html#a888f2c3d4f606fc821a1e638c01a6543", null ],
+    [ "spaces", "class_logger.html#a7fc8e5b4f3029d295f5e1d43ea4d34cf", null ],
+    [ "tag", "class_logger.html#a28c812cea9c33b7a38d1b7c09a860557", null ]
+];

@@ -1,0 +1,13 @@
+digraph "QCPDataSelection::simplify"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="QCPDataSelection::simplify",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="QCPDataSelection::lessThan\lDataRangeBegin",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_data_selection.html#a6f171526f5441482568ff5e22e6af2c6",tooltip=" "];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="QCPDataRange::begin",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_data_range.html#ae76d7eba9defdfafcd0fc41096793129",tooltip=" "];
+}

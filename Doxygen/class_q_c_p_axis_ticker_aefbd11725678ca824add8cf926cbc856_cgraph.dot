@@ -1,0 +1,32 @@
+digraph "QCPAxisTicker::generate"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="QCPAxisTicker::generate",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="QCPAxisTicker::createLabel\lVector",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_ticker.html#a804050e408f37a0b9770c6654ebe6aa7",tooltip=" "];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="QCPAxisTicker::getTickLabel",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_ticker.html#a8201eb4aa8be192bf786b126eb5ee089",tooltip=" "];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="QCPAxisTicker::createSub\lTickVector",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_ticker.html#a9a6435723fa0bd366d1ea4c2cff7c33f",tooltip=" "];
+  Node1 -> Node5 [id="edge4_Node000001_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="QCPAxisTicker::createTick\lVector",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_ticker.html#af4645a824c7bd2ca8fc7e86ebf9055bd",tooltip=" "];
+  Node1 -> Node6 [id="edge5_Node000001_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="QCPAxisTicker::getSubTick\lCount",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_ticker.html#a4ccc403ced7a1457ce6ba293509933c8",tooltip=" "];
+  Node6 -> Node7 [id="edge6_Node000006_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="QCPAxisTicker::getMantissa",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_ticker.html#abe99aaaf6c512812869b0a19937c76ff",tooltip=" "];
+  Node1 -> Node8 [id="edge7_Node000001_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="QCPAxisTicker::getTickStep",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_ticker.html#a910d69bcec2de37e92d8d4e1ecf201e2",tooltip=" "];
+  Node8 -> Node9 [id="edge8_Node000008_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="QCPAxisTicker::cleanMantissa",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_ticker.html#ac7df6c72876b7abd67c932663a0b0f6a",tooltip=" "];
+  Node9 -> Node7 [id="edge9_Node000009_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node9 -> Node10 [id="edge10_Node000009_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="QCPAxisTicker::pickClosest",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_ticker.html#a4ea0a7c4ca1c610f92b9bd5944ab4260",tooltip=" "];
+  Node8 -> Node11 [id="edge11_Node000008_Node000011",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="QCPRange::size",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_range.html#a62326e7cc4316b96df6a60813230e63f",tooltip=" "];
+  Node1 -> Node12 [id="edge12_Node000001_Node000012",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="QCPAxisTicker::trimTicks",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_ticker.html#ab28cc1ab549489be7975f5ce7e717916",tooltip=" "];
+}

@@ -1,0 +1,17 @@
+digraph "QCPPolarGraph::selectionChanged"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="QCPPolarGraph::selection\lChanged",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="QCPPolarGraph::setSelectable",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_graph.html#ab69bb9f6074ba180e74e535fd6494f96",tooltip=" "];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="QCPPolarGraph::setSelection",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_graph.html#ab5cc3f205eeb153dd3a28c11b996ccb2",tooltip=" "];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="QCPPolarGraph::deselectEvent",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_graph.html#a3372c079d5859f513d18384890945072",tooltip=" "];
+  Node3 -> Node5 [id="edge4_Node000003_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="QCPPolarGraph::selectEvent",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_graph.html#a1bc6a4af76e45ce13cd4f544062ff8b3",tooltip=" "];
+}

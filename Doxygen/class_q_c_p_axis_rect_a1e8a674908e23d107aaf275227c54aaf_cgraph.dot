@@ -1,0 +1,26 @@
+digraph "QCPAxisRect::~QCPAxisRect"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="QCPAxisRect::~QCPAxisRect",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="QCPAxisRect::axes",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_rect.html#a11657b8faebe9677180860e8057ede26",tooltip=" "];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="QCPAxisRect::axis",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_rect.html#a583ae4f6d78b601b732183f6cabecbe1",tooltip=" "];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="QCPAxisRect::removeAxis",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis_rect.html#a03c39cd9704f0d36fb6cf980cdddcbaa",tooltip=" "];
+  Node4 -> Node3 [id="edge4_Node000004_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node5 [id="edge5_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="QCustomPlot::axisRemoved",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_custom_plot.html#a8b46607021c463c94709d3504951cb47",tooltip=" "];
+  Node5 -> Node6 [id="edge6_Node000005_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="QCustomPlot::QCPAxis",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_custom_plot.html#af123edeca169ec7a31958a1d714e1a8a",tooltip=" "];
+  Node6 -> Node6 [id="edge7_Node000006_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node7 [id="edge8_Node000004_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="QCPLayerable::parentPlot",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_layerable.html#a36ed5b292b90934b524a4e5866a3526c",tooltip=" "];
+  Node7 -> Node8 [id="edge9_Node000007_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="QCPLayerable::QCustomPlot",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_layerable.html#a1cdf9df76adcfae45261690aa0ca2198",tooltip=" "];
+  Node8 -> Node8 [id="edge10_Node000008_Node000008",color="steelblue1",style="solid",tooltip=" "];
+}

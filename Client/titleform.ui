@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TitleForm</class>
+ <widget class="QWidget" name="TitleForm">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>1200</width><height>800</height></rect></property>
+  <property name="styleSheet"><string>background-color: #e8f4f8;</string></property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <property name="leftMargin"><number>60</number></property>
+   <property name="topMargin"><number>30</number></property>
+   <property name="rightMargin"><number>60</number></property>
+   <property name="bottomMargin"><number>20</number></property>
+   <item>
+    <widget class="QLabel" name="labelMinistry">
+     <property name="text"><string>Министерство науки и высшего образования Российской Федерации</string></property>
+     <property name="font"><font><family>Times New Roman</family><pointsize>13</pointsize></font></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelFederal">
+     <property name="text"><string>Федеральное государственное автономное образовательное учреждение высшего образования</string></property>
+     <property name="font"><font><family>Times New Roman</family><pointsize>13</pointsize></font></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelUniversity">
+     <property name="text"><string>МОСКОВСКИЙ ПОЛИТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ</string></property>
+     <property name="font"><font><family>Times New Roman</family><pointsize>18</pointsize><weight>75</weight><bold>true</bold></font></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelMoscow">
+     <property name="text"><string>(МОСКОВСКИЙ ПОЛИТЕХ)</string></property>
+     <property name="font"><font><family>Times New Roman</family><pointsize>13</pointsize></font></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+    </widget>
+   </item>
+   <item><spacer name="s1"><property name="orientation"><enum>Qt::Vertical</enum></property></spacer></item>
+   <item>
+    <widget class="QLabel" name="labelProject">
+     <property name="text"><string>КУРСОВОЙ ПРОЕКТ</string></property>
+     <property name="font"><font><family>Times New Roman</family><pointsize>18</pointsize><weight>75</weight><bold>true</bold></font></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelCourse">
+     <property name="text"><string>По курсу "Технологии и методы программирования"</string></property>
+     <property name="font"><font><family>Times New Roman</family><pointsize>13</pointsize></font></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelTheme">
+     <property name="text"><string>ТЕМА</string></property>
+     <property name="font"><font><family>Times New Roman</family><pointsize>15</pointsize><weight>75</weight><bold>true</bold></font></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelThemeText">
+     <property name="text"><string>Сетевое программирование на С++</string></property>
+     <property name="font"><font><family>Times New Roman</family><pointsize>15</pointsize></font></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+    </widget>
+   </item>
+   <item><spacer name="s2"><property name="orientation"><enum>Qt::Vertical</enum></property></spacer></item>
+   <item>
+    <widget class="QLabel" name="labelExecuted">
+     <property name="text"><string>Выполнили:
+Студенты группы 251-372
+Гусев Иван Алексеевич
+Сиухин Александр Витальевич
+Мережкин Дмитрий Александрович
+Строгалов Никита Андреевич</string></property>
+     <property name="font"><font><family>Times New Roman</family><pointsize>13</pointsize></font></property>
+     <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelChecked">
+     <property name="text"><string>Проверила:
+Киреева Галина Ивановна
+к.т.н доцент</string></property>
+     <property name="font"><font><family>Times New Roman</family><pointsize>13</pointsize></font></property>
+     <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+    </widget>
+   </item>
+   <item><spacer name="s3"><property name="orientation"><enum>Qt::Vertical</enum></property></spacer></item>
+   <item>
+    <widget class="QLabel" name="labelYear">
+     <property name="text"><string>Москва, 2026</string></property>
+     <property name="font"><font><family>Times New Roman</family><pointsize>15</pointsize></font></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+    </widget>
+   </item>
+   <item><spacer name="s4"><property name="orientation"><enum>Qt::Vertical</enum></property></spacer></item>
+   <item>
+    <layout class="QHBoxLayout" name="navLayout">
+     <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+     <item>
+      <widget class="QPushButton" name="btnNext">
+       <property name="text"><string>▶</string></property>
+       <property name="minimumSize"><size><width>44</width><height>44</height></size></property>
+       <property name="maximumSize"><size><width>44</width><height>44</height></size></property>
+       <property name="styleSheet"><string>background-color: #222; color: white; border-radius: 6px; font-size: 20px;</string></property>
+       <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+</ui>

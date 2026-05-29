@@ -1,0 +1,11 @@
+digraph "QCPLabelPainterPrivate::QCPLabelPainterPrivate"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="QCPLabelPainterPrivate\l::QCPLabelPainterPrivate",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="QCPLabelPainterPrivate\l::analyzeFontMetrics",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_label_painter_private.html#a3af49398352e1170072a68f326f01bc6",tooltip=" "];
+}

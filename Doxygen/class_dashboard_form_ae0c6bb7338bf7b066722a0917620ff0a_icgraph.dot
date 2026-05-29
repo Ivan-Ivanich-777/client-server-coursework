@@ -1,0 +1,16 @@
+digraph "DashboardForm::togglePanel"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="DashboardForm::togglePanel",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="DashboardForm::eventFilter",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_dashboard_form.html#a47541d984b0ee2f65263335473753580",tooltip=" "];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="DashboardForm::setupSide\lPanel",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_dashboard_form.html#a9cdeb0692dd350dfe2a33fa9efb8f583",tooltip=" "];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="DashboardForm::DashboardForm",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_dashboard_form.html#a13b6c3a4794178363f5562506b0f0c48",tooltip=" "];
+  Node4 -> Node4 [id="edge4_Node000004_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+}

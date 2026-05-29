@@ -1,0 +1,51 @@
+digraph "QCPSelectionDecorator::getFinalScatterStyle"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="QCPSelectionDecorator\l::getFinalScatterStyle",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="QCPScatterStyle::isPenDefined",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#a47077eb6450fe9a788f833e4ec1b1d5a",tooltip=" "];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="QCPScatterStyle::setFrom\lOther",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#a7d59ba8864914f765817841089e436f1",tooltip=" "];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="QCPScatterStyle::brush",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#adc4f66aed84f1d7a3a5aabf4f48f31a6",tooltip=" "];
+  Node3 -> Node5 [id="edge4_Node000003_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="QCPScatterStyle::customPath",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#aef1fac84c9830fd97f2a8568e605e372",tooltip=" "];
+  Node3 -> Node2 [id="edge5_Node000003_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node3 -> Node6 [id="edge6_Node000003_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="QCPScatterStyle::pen",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#acdd6313d16e69d3810e9d1f48dd9e4bb",tooltip=" "];
+  Node3 -> Node7 [id="edge7_Node000003_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="QCPScatterStyle::pixmap",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#a9b2d1a2ec0aac0c74f7582d14050e93a",tooltip=" "];
+  Node3 -> Node8 [id="edge8_Node000003_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="QCPScatterStyle::QCPScatter\lStyle",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#a8836018d9ad83ccd8870de8315c1be73",tooltip=" "];
+  Node3 -> Node9 [id="edge9_Node000003_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="QCPScatterStyle::setBrush",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#a74d692aaeb8d4b36d6f7d510e44264b1",tooltip=" "];
+  Node9 -> Node4 [id="edge10_Node000009_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node3 -> Node10 [id="edge11_Node000003_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="QCPScatterStyle::setCustomPath",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#a96a3e949f90b2afe5677ca9412a12a1e",tooltip=" "];
+  Node10 -> Node5 [id="edge12_Node000010_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node10 -> Node11 [id="edge13_Node000010_Node000011",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="QCPScatterStyle::setShape",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#a7c641c4d4c6d29cb705d3887cfce91c1",tooltip=" "];
+  Node11 -> Node12 [id="edge14_Node000011_Node000012",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="QCPScatterStyle::shape",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#af04cad55bd7f58a96da4fc6bc46a0a1e",tooltip=" "];
+  Node3 -> Node13 [id="edge15_Node000003_Node000013",color="steelblue1",style="solid",tooltip=" "];
+  Node13 [id="Node000013",label="QCPScatterStyle::setPen",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#a761f1f229cc0ca4703e1e2b89f6dd1ba",tooltip=" "];
+  Node13 -> Node6 [id="edge16_Node000013_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node3 -> Node14 [id="edge17_Node000003_Node000014",color="steelblue1",style="solid",tooltip=" "];
+  Node14 [id="Node000014",label="QCPScatterStyle::setPixmap",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#a5fb611d46acfac520d7b89a1c71d9246",tooltip=" "];
+  Node14 -> Node7 [id="edge18_Node000014_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node14 -> Node11 [id="edge19_Node000014_Node000011",color="steelblue1",style="solid",tooltip=" "];
+  Node3 -> Node11 [id="edge20_Node000003_Node000011",color="steelblue1",style="solid",tooltip=" "];
+  Node3 -> Node15 [id="edge21_Node000003_Node000015",color="steelblue1",style="solid",tooltip=" "];
+  Node15 [id="Node000015",label="QCPScatterStyle::setSize",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#aaefdd031052892c4136129db68596e0f",tooltip=" "];
+  Node15 -> Node16 [id="edge22_Node000015_Node000016",color="steelblue1",style="solid",tooltip=" "];
+  Node16 [id="Node000016",label="QCPScatterStyle::size",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#a0e94526d9165d9f50e262102bdd71a47",tooltip=" "];
+  Node3 -> Node12 [id="edge23_Node000003_Node000012",color="steelblue1",style="solid",tooltip=" "];
+  Node3 -> Node16 [id="edge24_Node000003_Node000016",color="steelblue1",style="solid",tooltip=" "];
+  Node3 -> Node17 [id="edge25_Node000003_Node000017",color="steelblue1",style="solid",tooltip=" "];
+  Node17 [id="Node000017",label="QCPScatterStyle::undefinePen",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_scatter_style.html#acabc2a8c83d650b946f50c3166b6c35e",tooltip=" "];
+  Node1 -> Node13 [id="edge26_Node000001_Node000013",color="steelblue1",style="solid",tooltip=" "];
+}

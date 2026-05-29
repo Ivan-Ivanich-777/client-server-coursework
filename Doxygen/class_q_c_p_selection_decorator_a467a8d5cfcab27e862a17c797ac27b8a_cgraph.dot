@@ -1,0 +1,30 @@
+digraph "QCPSelectionDecorator::copyFrom"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="QCPSelectionDecorator\l::copyFrom",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="QCPSelectionDecorator\l::brush",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_selection_decorator.html#a783b643aa52120a25308fc501b9998b1",tooltip=" "];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="QCPSelectionDecorator::pen",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_selection_decorator.html#a9307a60c9759223367909aed2d05ad91",tooltip=" "];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="QCPSelectionDecorator\l::QCPSelectionDecorator",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_selection_decorator.html#aa145480d9a062cd176fe30900bb7bca8",tooltip=" "];
+  Node1 -> Node5 [id="edge4_Node000001_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="QCPSelectionDecorator\l::scatterStyle",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_selection_decorator.html#aa6558f6f270a188bb633386aba0d1ae4",tooltip=" "];
+  Node1 -> Node6 [id="edge5_Node000001_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="QCPSelectionDecorator\l::setBrush",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_selection_decorator.html#aa74b626be518ea17055f918d423c8c2d",tooltip=" "];
+  Node6 -> Node2 [id="edge6_Node000006_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node7 [id="edge7_Node000001_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="QCPSelectionDecorator\l::setPen",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_selection_decorator.html#ac2c8192e1e294aa3a4a7f32a859e3d76",tooltip=" "];
+  Node7 -> Node3 [id="edge8_Node000007_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node8 [id="edge9_Node000001_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="QCPSelectionDecorator\l::setScatterStyle",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_selection_decorator.html#ab403a613289714ff4fd4a0c0371ab116",tooltip=" "];
+  Node8 -> Node5 [id="edge10_Node000008_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node8 -> Node9 [id="edge11_Node000008_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="QCPSelectionDecorator\l::setUsedScatterProperties",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_selection_decorator.html#a808c1607cd4e83869c04986e332455c0",tooltip=" "];
+  Node1 -> Node10 [id="edge12_Node000001_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="QCPSelectionDecorator\l::usedScatterProperties",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_selection_decorator.html#ab2019bf31dde39f1ec028e3810dfc08b",tooltip=" "];
+}

@@ -1,0 +1,48 @@
+@startuml UseCaseDiagram
+left to right direction
+skinparam actorStyle awesome
+skinparam usecaseFontSize 12
+skinparam packageStyle rectangle
+
+actor "User" as User
+actor "Administrator" as Admin
+
+rectangle "TaMP" {
+
+    package "Authentication" {
+        usecase "Login" as UC_Auth
+        usecase "Registration" as UC_Reg
+        usecase "Password Reset" as UC_Reset
+    }
+
+    package "Application" {
+        usecase "View Function\nGraph" as UC_Graph
+    }
+
+    package "Infrastructure" {
+        usecase "Database\n(SQLite)" as UC_DB
+        usecase "Email Notification\n(SMTP)" as UC_Email
+        usecase "Docker Container" as UC_Docker
+    }
+}
+
+User --> UC_Auth
+User --> UC_Reg
+User --> UC_Reset
+User --> UC_Graph
+
+UC_Auth ..> UC_DB : <<uses>>
+UC_Reg  ..> UC_DB : <<uses>>
+UC_Reset ..> UC_DB : <<uses>>
+UC_Reset ..> UC_Email : <<uses>>
+
+Admin --> UC_DB
+Admin --> UC_Docker
+
+note right of UC_Reset
+  1. reset&{login}
+  2. confirm&{login}&{code}
+  3. newpass&{login}&{hash}
+end note
+
+@enduml

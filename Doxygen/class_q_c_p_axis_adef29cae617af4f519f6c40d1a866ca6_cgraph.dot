@@ -1,0 +1,21 @@
+digraph "QCPAxis::setScaleType"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="QCPAxis::setScaleType",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="QCPAxis::scaleTypeChanged",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis.html#a3505ed8a93bd2e349d858d84996bf767",tooltip=" "];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="QCPAxis::scaleType",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis.html#ad23e9ad97b44e9aeaf4fab8904280098",tooltip=" "];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="QCPAxis::setRange",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis.html#aebdfea5d44c3a0ad2b4700cd4d25b641",tooltip=" "];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="QCPAxis::range",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis.html#ac4058855a81f1a883cf2e754f6a6acb1",tooltip=" "];
+  Node4 -> Node6 [id="edge5_Node000004_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="QCPAxis::rangeChanged",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_axis.html#a0894084e4c16a1736534c4095746f910",tooltip=" "];
+  Node4 -> Node7 [id="edge6_Node000004_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="QCPRange::validRange",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_range.html#ab38bd4841c77c7bb86c9eea0f142dcc0",tooltip=" "];
+}

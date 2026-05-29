@@ -1,0 +1,20 @@
+digraph "QCPLayer::removeChild"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="QCPLayer::removeChild",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="QCPLayer::QCPLayerable",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_layer.html#ad655f55cccf49ba14d5172ec517e07ae",tooltip=" "];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="QCPLayer::QCPLayer",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_layer.html#a5d0657fc86d624e5efbe930ef21af718",tooltip=" "];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="QCPLayer::parentPlot",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_layer.html#a923cb87bb467eeb17d649ba2b2fe4f5f",tooltip=" "];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="QCPLayer::QCustomPlot",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_layer.html#a1cdf9df76adcfae45261690aa0ca2198",tooltip=" "];
+  Node5 -> Node5 [id="edge5_Node000005_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node3 -> Node5 [id="edge6_Node000003_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node2 -> Node2 [id="edge7_Node000002_Node000002",color="steelblue1",style="solid",tooltip=" "];
+}

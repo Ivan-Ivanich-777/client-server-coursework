@@ -1,0 +1,35 @@
+digraph "QCPPolarAxisAngular::wheelEvent"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="QCPPolarAxisAngular\l::wheelEvent",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="QCPPolarAxisAngular\l::pixelToCoord",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_axis_angular.html#a577c03df0af3a329f0c4a9a3006a7f4b",tooltip=" "];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="QCPPolarAxisRadial\l::pixelToCoord",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_axis_radial.html#ab459aff0627855ea45daa703efd3ba61",tooltip=" "];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="QCPVector2D::angle",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_vector2_d.html#a2d3ff018ba2aca0ac0d15db35d45a4de",tooltip=" "];
+  Node3 -> Node5 [id="edge4_Node000003_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="QCPVector2D::length",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_vector2_d.html#a10adb5ab031fe94f0b64a3c5aefb552e",tooltip=" "];
+  Node3 -> Node6 [id="edge5_Node000003_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="QCPPolarAxisRadial\l::radiusToCoord",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_axis_radial.html#a63f7e3aa1aaad57a1f9bee56fb8209a1",tooltip=" "];
+  Node1 -> Node7 [id="edge6_Node000001_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="QCPPolarAxisRadial\l::rangeZoom",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_axis_radial.html#ac871f9e1bf06743b61cd34c898ee0121",tooltip=" "];
+  Node1 -> Node8 [id="edge7_Node000001_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="QCPPolarAxisRadial\l::rangeZoomFactor",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_axis_radial.html#a190eb6782b22860a6fad40243b661d59",tooltip=" "];
+  Node1 -> Node9 [id="edge8_Node000001_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="QCPPolarAxisAngular\l::scaleRange",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_axis_angular.html#ae101a2ad79391909da0c0f1f08f9e872",tooltip=" "];
+  Node9 -> Node10 [id="edge9_Node000009_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="QCPPolarAxisAngular\l::center",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_axis_angular.html#a2543f064aba8787535cb497f1cf21cbb",tooltip=" "];
+  Node9 -> Node11 [id="edge10_Node000009_Node000011",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="QCPPolarAxisAngular\l::range",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_axis_angular.html#a6f9155eec81c0e3f9194a78dda3a70da",tooltip=" "];
+  Node9 -> Node9 [id="edge11_Node000009_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node12 [id="edge12_Node000001_Node000012",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="QCPPolarAxisRadial\l::scaleRange",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_axis_radial.html#a4448749008af786d15e806c956d022ee",tooltip=" "];
+  Node12 -> Node13 [id="edge13_Node000012_Node000013",color="steelblue1",style="solid",tooltip=" "];
+  Node13 [id="Node000013",label="QCPPolarAxisRadial\l::range",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_q_c_p_polar_axis_radial.html#a9b61a998e6ef4a46dd26bf0fcfd70640",tooltip=" "];
+  Node12 -> Node12 [id="edge14_Node000012_Node000012",color="steelblue1",style="solid",tooltip=" "];
+}
