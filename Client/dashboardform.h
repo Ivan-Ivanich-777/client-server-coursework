@@ -1,27 +1,26 @@
 ﻿#ifndef DASHBOARDFORM_H
 #define DASHBOARDFORM_H
 #include <QWidget>
-#include <QMessageBox>
-#include <QMouseEvent>
-#include <QColorDialog>
-#include <QToolButton>
+#include <QTableWidget>
+#include <QPushButton>
 #include <QSlider>
 #include <QDoubleSpinBox>
-#include <QMenu>
-#include <QFrame>
-#include <QPropertyAnimation>
-#include <QTimer>
+#include <QLabel>
+#include <QPainter>
+#include <QPainterPath>
 #include "socketmanager.h"
-#include "qcustomplot.h"
-
-extern bool g_dark;
-extern QString g_lang;
-QString darkStyle();
-QString lightStyle();
-QString t(const QString& k);
-
 namespace Ui { class DashboardForm; }
-
+class PlotWidget : public QWidget {
+    Q_OBJECT
+public:
+    explicit PlotWidget(QWidget *parent = nullptr);
+    void setParams(double a, double b, double c);
+protected:
+    void paintEvent(QPaintEvent *) override;
+private:
+    double m_A=1,m_B=3,m_C=1;
+    double f(double x);
+};
 class DashboardForm : public QWidget {
     Q_OBJECT
 public:
@@ -29,49 +28,17 @@ public:
     ~DashboardForm();
     void handleResponse(const QString& d);
     void setLogin(const QString& l);
-    void retranslate();
 signals:
-    void logoutRequested();
-protected:
-    bool eventFilter(QObject *obj, QEvent *event) override;
-    void resizeEvent(QResizeEvent *event) override;
-private slots:
-    void on_btnCheck_clicked();
-    void on_sliderX_valueChanged(int v);
-    void on_sliderA_valueChanged(int v);
-    void on_spinX_valueChanged(double v);
-    void on_spinA_valueChanged(double v);
-    void onMouseMove(QMouseEvent* e);
-    void delayedReplot();
+    void backClicked();
 private:
     Ui::DashboardForm *ui;
     QString m_login;
-    QCPItemTracer *tracer;
-    QCPItemText *tracerLabel, *coordLabel;
-    double m_A;
-    QColor m_c1, m_c2, m_c3, m_bg, m_grid, m_axis;
-    QFrame *m_sidePanel;
-    QFrame *m_overlay;
-    QFrame *m_topBar;
-    QToolButton *m_menuBtn;
-    bool m_panelOpen;
-    bool m_updating;
-    QTimer *m_replotTimer;
-
+    double m_A=1,m_B=3,m_C=1;
+    QTableWidget *m_table;
+    PlotWidget *m_plotWidget;
+    QSlider *sldA,*sldB,*sldC;
+    QDoubleSpinBox *spnA,*spnB,*spnC;
+    double localF(double x);
     void rebuildGraph();
-    double f(double x, double A);
-    void updatePos(double x);
-    void setupSidePanel();
-    void togglePanel();
-    void changeGraphColor(int idx);
-    void changeSliderColor();
-    void changeBg();
-    void changeGridColor();
-    void changeAxisColor();
-    void resetAll();
-    void setLanguage(const QString& lang);
-    void toggleTheme();
-    void applyStyle();
-    void updateSidePanelStyle();
 };
 #endif

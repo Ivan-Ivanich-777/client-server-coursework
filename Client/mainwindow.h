@@ -2,20 +2,20 @@
 #define MAINWINDOW_H
 #include <QMainWindow>
 #include <QStackedWidget>
-#include "loginform.h"
-#include "regform.h"
+#include "authform.h"
+#include "titleform.h"
+#include "taskform.h"
 #include "dashboardform.h"
+
 class MainWindow : public QMainWindow {
     Q_OBJECT
 public:
-    MainWindow(QWidget *p=nullptr);
-    ~MainWindow();
-private slots:
-    void onServerResponse(const QString& d);
+    explicit MainWindow(QWidget *p = nullptr);
 private:
     QStackedWidget *m_stack;
-    LoginForm *m_login;
-    RegForm *m_reg;
+    TitleForm *m_title;
+    TaskForm *m_task;
     DashboardForm *m_dash;
+    AuthForm *m_auth;
 };
 #endif

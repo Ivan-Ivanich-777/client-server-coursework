@@ -1,74 +1,135 @@
-﻿@startuml
-skinparam backgroundColor #FFFFFF
-skinparam classBackgroundColor #F0F0F0
+@startuml ClassDiagram
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam packageStyle rectangle
+skinparam linetype ortho
 
-class MainWindow {
-    -QStackedWidget* m_stack
-    -LoginForm* m_login
-    -RegForm* m_reg
-    -DashboardForm* m_dash
-    +onServerResponse(data)
+package "TaMP_Server" {
+
+    class ServerInterface {
+        - server : QTcpServer
+        - db : DbHandler
+        - logic : ServerLogic
+        --
+        + ServerInterface(port : int)
+        + start() : void
+        - onNewConnection() : void
+        - onReadyRead() : void
+    }
+
+    class ServerLogic {
+        - db : DbHandler&
+        - resetCodes : map<string,string>
+        --
+        + handleRequest(req : Request) : string
+        - handleAuth(args) : string
+        - handleReg(args) : string
+        - handleReset(args) : string
+        - handleConfirm(args) : string
+        - handleNewpass(args) : string
+    }
+
+    class DbHandler {
+        - db : QSqlDatabase
+        --
+        + DbHandler(dbPath : string)
+        + authUser(login, hash) : string
+        + registerUser(login, name, hash, email) : bool
+        + emailExists(email) : bool
+        + updatePassword(email, hash) : bool
+        + getEmailByLogin(login) : string
+    }
+
+    class SmtpClient <<utility>> {
+        + {static} sendPasswordResetCode(to, login, code) : bool
+    }
+
+    enum CommandType {
+        AUTH
+        REG
+        RESET
+        CONFIRM
+        NEWPASS
+        UNKNOWN
+    }
+
+    struct Request {
+        + type : CommandType
+        + args : vector<string>
+    }
+
+    ServerInterface "1" --> "1" DbHandler : owns
+    ServerInterface "1" --> "1" ServerLogic : uses
+    ServerLogic --> DbHandler : ref
+    ServerLogic --> SmtpClient : calls
+    ServerLogic ..> Request : reads
+    Request --> CommandType
 }
 
-class LoginForm {
-    -QLineEdit* lineEditLogin
-    -QLineEdit* lineEditPass
-    +handleResponse(data)
-    +retranslate()
+package "TaMP_Client" {
+
+    class TcpClient <<Singleton>> {
+        - socket : QTcpSocket
+        --
+        + {static} getInstance() : TcpClient&
+        + connectToServer(host, port) : void
+        + sendMessage(msg : QString) : void
+        + isConnected() : bool
+        --
+        ~ messageReceived(msg : QString)
+        ~ connected()
+        ~ disconnected()
+    }
+
+    class LoginWindow {
+        --
+        + LoginWindow(parent)
+        - onLogin() : void
+        - onServerReply(msg) : void
+        --
+        ~ authSuccess(name : QString)
+        ~ goRegister()
+        ~ goReset()
+    }
+
+    class RegisterWindow {
+        --
+        + RegisterWindow(parent)
+        - onRegister() : void
+        - onServerReply(msg) : void
+        --
+        ~ regSuccess()
+        ~ goLogin()
+    }
+
+    class ResetPasswordWindow {
+        - step : int
+        --
+        + ResetPasswordWindow(parent)
+        - onNext() : void
+        - onServerReply(msg) : void
+        --
+        ~ resetSuccess()
+        ~ goLogin()
+    }
+
+    class TaskWindow {
+        - plot : QCustomPlot
+        --
+        + TaskWindow(parent)
+        + setName(name : QString) : void
+        - updatePlot() : void
+        - updateTable(a, b, c) : void
+        --
+        ~ logout()
+    }
+
+    LoginWindow --> TcpClient : uses
+    RegisterWindow --> TcpClient : uses
+    ResetPasswordWindow --> TcpClient : uses
+    TaskWindow --> TcpClient : uses
 }
 
-class RegForm {
-    -QLineEdit* lineEditLogin
-    -QLineEdit* lineEditPass
-    -QLineEdit* lineEditEmail
-    +handleResponse(data)
-}
+ServerInterface <.. TcpClient : TCP 12345
 
-class DashboardForm {
-    -QCustomPlot* plot
-    -QSlider* sliderX
-    -QSlider* sliderA
-    -double m_A
-    +rebuildGraph()
-    +f(x, A)
-}
-
-class SocketManager {
-    -QTcpSocket* m_socket
-    +instance()
-    +sendMessage(msg)
-    +connectToServer(host, port)
-}
-
-class MyTcpServer {
-    -QTcpServer* m_server
-    -QMap<int, QTcpSocket*> m_sockets
-    -ServerCore m_core
-    +slotNewConnection()
-    +slotServerRead()
-}
-
-class ServerCore {
-    -DBManager* m_db
-    +parseMessage(msg)
-    +checkTask1(x,y)
-    +checkTask2(x,y)
-    +checkTask3(x,y)
-}
-
-class DBManager {
-    -QSqlDatabase m_db
-    +instance()
-    +registerUser()
-    +authorizeUser()
-    +getUserStats()
-}
-
-MainWindow --> LoginForm
-MainWindow --> RegForm
-MainWindow --> DashboardForm
-DashboardForm --> SocketManager
-SocketManager --> MyTcpServer
-MyTcpServer --> ServerCore
-ServerCore --> DBManager
 @enduml

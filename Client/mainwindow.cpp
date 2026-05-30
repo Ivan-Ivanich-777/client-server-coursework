@@ -1,26 +1,31 @@
 ﻿#include "mainwindow.h"
-#include <QStackedWidget>
-#include <QLineEdit>
+#include "authform.h"
+#include "titleform.h"
+#include "taskform.h"
+#include "dashboardform.h"
+#include "socketmanager.h"
+
 MainWindow::MainWindow(QWidget *p) : QMainWindow(p) {
+    setWindowTitle("Math Solver");
+    resize(1200, 800);
     m_stack = new QStackedWidget(this);
     setCentralWidget(m_stack);
-    m_login = new LoginForm(); m_reg = new RegForm(); m_dash = new DashboardForm();
-    m_stack->addWidget(m_login); m_stack->addWidget(m_reg); m_stack->addWidget(m_dash);
+    m_title = new TitleForm();
+    m_task = new TaskForm();
+    m_dash = new DashboardForm();
+    m_auth = new AuthForm();
+    m_stack->addWidget(m_title);
+    m_stack->addWidget(m_task);
+    m_stack->addWidget(m_dash);
     m_stack->setCurrentIndex(0);
-    connect(m_login,&LoginForm::toRegClicked,this,[=](){ m_stack->setCurrentIndex(1); });
-    connect(m_reg,&RegForm::backClicked,this,[=](){ m_stack->setCurrentIndex(0); });
-    connect(m_reg,&RegForm::regSuccess,this,[=](){ m_stack->setCurrentIndex(0); });
-    connect(m_login,&LoginForm::loginSuccess,this,[=](){
-        m_dash->setLogin(m_login->findChild<QLineEdit*>("lineEditLogin")->text());
-        m_stack->setCurrentIndex(2);
-    });
-    connect(m_dash,&DashboardForm::logoutRequested,this,[=](){ m_stack->setCurrentIndex(0); });
-    connect(SocketManager::instance(),&SocketManager::dataReceived,this,&MainWindow::onServerResponse);
-}
-MainWindow::~MainWindow() {}
-void MainWindow::onServerResponse(const QString &d) {
-    int i = m_stack->currentIndex();
-    if (i==0) m_login->handleResponse(d);
-    else if (i==1) m_reg->handleResponse(d);
-    else if (i==2) m_dash->handleResponse(d);
+    m_auth->setParent(this);
+    m_auth->setGeometry((width()-360)/2, (height()-420)/2, 360, 420);
+    m_auth->show();
+    connect(m_auth, &AuthForm::loginSuccess, [this](){ m_auth->hide(); });
+    connect(m_title, &TitleForm::nextClicked, [this](){ m_stack->setCurrentIndex(1); });
+    connect(m_task, &TaskForm::nextClicked, [this](){ m_stack->setCurrentIndex(2); });
+    connect(m_task, &TaskForm::backClicked, [this](){ m_stack->setCurrentIndex(0); });
+    connect(m_dash, &DashboardForm::backClicked, [this](){ m_stack->setCurrentIndex(1); });
+    connect(SocketManager::instance(), &SocketManager::dataReceived, [this](const QString &d){ m_auth->handleResponse(d); });
+    SocketManager::instance()->connectToServer("127.0.0.1", 33333);
 }

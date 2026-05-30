@@ -390,6 +390,7 @@ Makefile: ../Server.pro ../../../msys64/mingw64/share/qt6/mkspecs/win32-g++/qmak
 		../../../msys64/mingw64/share/qt6/mkspecs/features/qt_config.prf \
 		../../../msys64/mingw64/share/qt6/mkspecs/win32-g++/qmake.conf \
 		../../../msys64/mingw64/share/qt6/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../msys64/mingw64/share/qt6/mkspecs/features/exclusive_builds.prf \
 		../../../msys64/mingw64/share/qt6/mkspecs/features/toolchain.prf \
 		../../../msys64/mingw64/share/qt6/mkspecs/features/default_pre.prf \
@@ -413,7 +414,6 @@ Makefile: ../Server.pro ../../../msys64/mingw64/share/qt6/mkspecs/win32-g++/qmak
 		../../../msys64/mingw64/share/qt6/mkspecs/features/yacc.prf \
 		../../../msys64/mingw64/share/qt6/mkspecs/features/lex.prf \
 		../Server.pro \
-		.qmake.stash \
 		../../../msys64/mingw64/share/qt6/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile ..\Server.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../msys64/mingw64/share/qt6/mkspecs/features/spec_pre.prf:
@@ -736,6 +736,7 @@ Makefile: ../Server.pro ../../../msys64/mingw64/share/qt6/mkspecs/win32-g++/qmak
 ../../../msys64/mingw64/share/qt6/mkspecs/features/qt_config.prf:
 ../../../msys64/mingw64/share/qt6/mkspecs/win32-g++/qmake.conf:
 ../../../msys64/mingw64/share/qt6/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../msys64/mingw64/share/qt6/mkspecs/features/exclusive_builds.prf:
 ../../../msys64/mingw64/share/qt6/mkspecs/features/toolchain.prf:
 ../../../msys64/mingw64/share/qt6/mkspecs/features/default_pre.prf:
@@ -759,7 +760,6 @@ Makefile: ../Server.pro ../../../msys64/mingw64/share/qt6/mkspecs/win32-g++/qmak
 ../../../msys64/mingw64/share/qt6/mkspecs/features/yacc.prf:
 ../../../msys64/mingw64/share/qt6/mkspecs/features/lex.prf:
 ../Server.pro:
-.qmake.stash:
 ../../../msys64/mingw64/share/qt6/mkspecs/features/build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\Server.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"

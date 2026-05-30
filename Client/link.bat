@@ -1,0 +1,2 @@
+C:\msys64\mingw64\bin\g++.exe -Wl,-s -Wl,-subsystem,windows -mthreads -o Client.exe main.o mainwindow.o authform.o titleform.o taskform.o dashboardform.o socketmanager.o qcustomplot.o C:/msys64/mingw64/lib/libQt6PrintSupport.dll.a C:/msys64/mingw64/lib/libQt6Widgets.dll.a C:/msys64/mingw64/lib/libQt6Gui.dll.a C:/msys64/mingw64/lib/libQt6Network.dll.a C:/msys64/mingw64/lib/libQt6Core.dll.a -lmingw32 C:/msys64/mingw64/lib/libQt6EntryPoint.a -lshell32
+pause

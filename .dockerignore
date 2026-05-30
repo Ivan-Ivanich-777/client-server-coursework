@@ -1,0 +1,11 @@
+﻿Client/
+Docs/
+wiki/
+*.sqlite
+build/
+debug/
+release/
+*.o
+moc_*
+ui_*
+Makefile*

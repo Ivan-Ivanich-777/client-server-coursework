@@ -1,20 +1,6 @@
-QT -= gui
-QT += network sql
-
-CONFIG += c++11 console
+QT += core network sql concurrent
+CONFIG += console c++17
 CONFIG -= app_bundle
-
-SOURCES += \
-    main.cpp \
-    myserver.cpp \
-    servercore.cpp \
-    dbmanager.cpp
-
-HEADERS += \
-    myserver.h \
-    servercore.h \
-    dbmanager.h
-
-qnx: target.path = /tmp/C:\MyProject\Server{TARGET}/bin
-else: unix:!android: target.path = /opt/C:\MyProject\Server{TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+TARGET = echoServer
+SOURCES += main.cpp mytcpserver.cpp database.cpp calculator.cpp functionsforserver.cpp smtpclient.cpp
+HEADERS += mytcpserver.h database.h calculator.h functionsforserver.h smtpclient.h

@@ -1,0 +1,14 @@
+﻿QString ServerCore::processCalcTable(const QStringList &p) {
+    if (p.size() != 4) return "table_error";
+    double a = p[1].toDouble(), b = p[2].toDouble(), c = p[3].toDouble();
+    qDebug() << "=== TABLE CALC START (a=" << a << "b=" << b << "c=" << c << ") ===";
+    QStringList results;
+    // 200 точек для плавного графика
+    for (int i = 0; i <= 200; i++) {
+        double x = -10.0 + i * 0.1;  // шаг 0.1 = 200 точек от -10 до 10
+        double y = f(x, a, b, c);
+        results << QString("%1&%2").arg(x, 0, 'f', 2).arg(y, 0, 'f', 6);
+    }
+    qDebug() << "=== TABLE CALC END ===";
+    return "table_data&" + results.join("&");
+}

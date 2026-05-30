@@ -1,39 +1,30 @@
 ﻿#ifndef SERVERCORE_H
 #define SERVERCORE_H
-
 #include <QString>
 #include <QStringList>
-#include <QDebug>
 #include <QMap>
-#include <QDateTime>
+#include <QPair>
+#include <QSslSocket>
+#include <QDebug>
 #include <cmath>
-#include <QRandomGenerator>
-#include <QtNetwork/QSslSocket>
-#include <QtNetwork/QTcpSocket>
 #include "dbmanager.h"
 
 class ServerCore {
 public:
     ServerCore();
-    QString parseMessage(const QString& msg, const QString& login = "");
+    QString parseMessage(const QString &msg, const QString &login);
 private:
-    DBManager* m_db;
-    QMap<QString, QString> m_verificationCodes;
-    QMap<QString, QPair<QString, QString>> m_pendingRegistrations;
-    QMap<QString, QString> m_resetCodes;
+    DBManager *m_db;
+    QMap<QString, QString> m_codes;
+    QMap<QString, QPair<QString, QString>> m_pending;
     
-    QString generateVerificationCode();
-    bool sendEmail(const QString& to, const QString& subject, const QString& body);
-    QString processAuth(const QStringList& parts);
-    QString processReg(const QStringList& parts);
-    QString processVerify(const QStringList& parts);
-    QString processForgot(const QStringList& parts);
-    QString processReset(const QStringList& parts);
-    QString processStat(const QStringList& parts);
-    QString processCheck(const QStringList& parts, const QString& login);
-    bool checkTask1(double x, double y);
-    bool checkTask2(double x, double y);
-    bool checkTask3(double x, double y);
+    QString processAuth(const QStringList &p);
+    QString processReg(const QStringList &p);
+    QString processVerify(const QStringList &p);
+    QString processForgot(const QStringList &p);
+    QString processReset(const QStringList &p);
+    QString processCalcTable(const QStringList &p);
+    QString processCheck(const QStringList &p, const QString &login);
+    void sendEmail(const QString &to, const QString &subject, const QString &body);
 };
-
 #endif

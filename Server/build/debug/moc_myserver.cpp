@@ -39,18 +39,18 @@ template <> constexpr inline auto MyTcpServer::qt_create_metaobjectdata<qt_meta_
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "MyTcpServer",
-        "slotNewConnection",
+        "onNewConnection",
         "",
-        "slotServerRead",
-        "slotClientDisconnected"
+        "onReadyRead",
+        "onDisconnected"
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Slot 'slotNewConnection'
+        // Slot 'onNewConnection'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'slotServerRead'
+        // Slot 'onReadyRead'
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'slotClientDisconnected'
+        // Slot 'onDisconnected'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
@@ -75,9 +75,9 @@ void MyTcpServer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
     auto *_t = static_cast<MyTcpServer *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->slotNewConnection(); break;
-        case 1: _t->slotServerRead(); break;
-        case 2: _t->slotClientDisconnected(); break;
+        case 0: _t->onNewConnection(); break;
+        case 1: _t->onReadyRead(); break;
+        case 2: _t->onDisconnected(); break;
         default: ;
         }
     }

@@ -1,0 +1,333 @@
+#include "schemadialog.h"
+
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QPainter>
+#include <QPainterPath>
+#include <QPen>
+#include <QFont>
+#include <QPolygon>
+
+#define FC_BG          QColor(0x0d, 0x11, 0x17)
+#define FC_BORDER      QColor(0x30, 0x36, 0x3d)
+#define FC_TEXT        QColor(0xe6, 0xed, 0xf3)
+#define FC_ARROW       QColor(0x8b, 0x94, 0x9e)
+#define FC_LABEL       QColor(0xd2, 0x99, 0x22)
+
+#define FC_START_FILL  QColor(0x0f, 0x51, 0x32)
+#define FC_INPUT_FILL  QColor(0x0d, 0x41, 0x9d)
+#define FC_COND_FILL   QColor(0x5d, 0x43, 0x00)
+#define FC_BR1_FILL    QColor(0x6e, 0x1a, 0x1a)
+#define FC_BR2_FILL    QColor(0x0e, 0x4d, 0x55)
+#define FC_BR3_FILL    QColor(0x3d, 0x1f, 0x6e)
+#define FC_OUT_FILL    QColor(0x0d, 0x38, 0x75)
+
+#define FC_START_BDR   QColor(0x23, 0x86, 0x36)
+#define FC_INPUT_BDR   QColor(0x38, 0x8b, 0xfd)
+#define FC_COND_BDR    QColor(0xd2, 0x99, 0x22)
+#define FC_BR1_BDR     QColor(0xf8, 0x51, 0x49)
+#define FC_BR2_BDR     QColor(0x39, 0xc5, 0xcf)
+#define FC_BR3_BDR     QColor(0xa3, 0x71, 0xf7)
+#define FC_OUT_BDR     QColor(0x58, 0xa6, 0xff)
+
+#define FONT_FAMILY    "Segoe UI"
+
+// ──────────────────────────────────────────────────────────────────────────
+/**
+ * @brief Конструктор виджета блок-схемы
+ *
+ * Устанавливает фиксированный размер виджета.
+ *
+ * @param parent родительский виджет
+ */
+FlowchartWidget::FlowchartWidget(QWidget *parent)
+    : QWidget(parent)
+{
+    setFixedSize(700, 735);
+}
+
+/**
+ * @brief Рисует прямоугольный блок со скруглёнными углами
+ *
+ * Используется для блоков «Начало», «Конец», ввода, вычислений и вывода.
+ *
+ * @param p объект рисовальщика
+ * @param cx центр блока по X
+ * @param cy центр блока по Y
+ * @param w ширина блока
+ * @param h высота блока
+ * @param text текст внутри блока
+ * @param fill цвет заливки
+ * @param border цвет обводки
+ */
+void FlowchartWidget::drawRoundedBlock(QPainter &p, int cx, int cy, int w, int h,
+                                        const QString &text,
+                                        const QColor &fill, const QColor &border)
+{
+    QRect rect(cx - w/2, cy - h/2, w, h);
+    QPainterPath path;
+    path.addRoundedRect(rect, 10, 10);
+    p.fillPath(path, fill);
+    p.setPen(QPen(border, 1.5));
+    p.drawPath(path);
+    p.setPen(FC_TEXT);
+    QFont f(FONT_FAMILY, 10);
+    p.setFont(f);
+    p.drawText(rect, Qt::AlignCenter | Qt::TextWordWrap, text);
+}
+
+/**
+ * @brief Рисует ромбовидный блок условия
+ *
+ * Используется для блоков условий «x < -2?» и «-2 <= x < 2?».
+ *
+ * @param p объект рисовальщика
+ * @param cx центр блока по X
+ * @param cy центр блока по Y
+ * @param w ширина блока
+ * @param h высота блока
+ * @param text текст условия внутри ромба
+ * @param fill цвет заливки
+ * @param border цвет обводки
+ */
+void FlowchartWidget::drawDiamond(QPainter &p, int cx, int cy, int w, int h,
+                                   const QString &text,
+                                   const QColor &fill, const QColor &border)
+{
+    QPolygon diamond;
+    diamond << QPoint(cx,       cy - h/2)
+            << QPoint(cx + w/2, cy)
+            << QPoint(cx,       cy + h/2)
+            << QPoint(cx - w/2, cy);
+    QPainterPath path;
+    path.addPolygon(diamond);
+    path.closeSubpath();
+    p.fillPath(path, fill);
+    p.setPen(QPen(border, 1.5));
+    p.drawPath(path);
+    p.setPen(FC_TEXT);
+    QFont f(FONT_FAMILY, 9);
+    p.setFont(f);
+    QRect textRect(cx - w/2 + 15, cy - h/2 + 10, w - 30, h - 20);
+    p.drawText(textRect, Qt::AlignCenter | Qt::TextWordWrap, text);
+}
+
+/**
+ * @brief Рисует стрелку вниз (линия + наконечник)
+ * @param p объект рисовальщика
+ * @param cx координата X начала и конца стрелки
+ * @param y1 координата Y начала стрелки
+ * @param y2 координата Y конца стрелки
+ */
+void FlowchartWidget::drawArrowDown(QPainter &p, int cx, int y1, int y2)
+{
+    p.setPen(QPen(FC_ARROW, 2));
+    p.drawLine(cx, y1, cx, y2);
+    QPolygon arr;
+    arr << QPoint(cx, y2) << QPoint(cx-6, y2-10) << QPoint(cx+6, y2-10);
+    p.setBrush(FC_ARROW);
+    p.drawPolygon(arr);
+    p.setBrush(Qt::NoBrush);
+}
+
+/**
+ * @brief Рисует стрелку вправо (линия + наконечник)
+ * @param p объект рисовальщика
+ * @param x1 координата X начала стрелки
+ * @param x2 координата X конца стрелки
+ * @param y координата Y линии стрелки
+ */
+void FlowchartWidget::drawArrowRight(QPainter &p, int x1, int x2, int y)
+{
+    p.setPen(QPen(FC_ARROW, 2));
+    p.drawLine(x1, y, x2, y);
+    QPolygon arr;
+    arr << QPoint(x2, y) << QPoint(x2-10, y-6) << QPoint(x2-10, y+6);
+    p.setBrush(FC_ARROW);
+    p.drawPolygon(arr);
+    p.setBrush(Qt::NoBrush);
+}
+
+/**
+ * @brief Рисует линию-стрелку между двумя точками (без наконечника)
+ * @param p объект рисовальщика
+ * @param x1 координата X начала
+ * @param y1 координата Y начала
+ * @param x2 координата X конца
+ * @param y2 координата Y конца
+ */
+void FlowchartWidget::drawArrowLine(QPainter &p, int x1, int y1, int x2, int y2)
+{
+    p.setPen(QPen(FC_ARROW, 2));
+    p.drawLine(x1, y1, x2, y2);
+}
+
+/**
+ * @brief Рисует текстовую подпись (например, «Да»/«Нет»)
+ * @param p объект рисовальщика
+ * @param cx центр текста по X
+ * @param cy центр текста по Y
+ * @param w ширина области текста
+ * @param h высота области текста
+ * @param text выводимый текст
+ */
+void FlowchartWidget::drawText(QPainter &p, int cx, int cy, int w, int h, const QString &text)
+{
+    QRect rect(cx - w/2, cy - h/2, w, h);
+    QFont f(FONT_FAMILY, 9, QFont::Bold);
+    p.setFont(f);
+    p.setPen(FC_LABEL);
+    p.drawText(rect, Qt::AlignCenter, text);
+}
+
+/**
+ * @brief Обработчик отрисовки блок-схемы
+ *
+ * Последовательно отрисовывает все элементы блок-схемы:
+ * Начало → Ввод → Условия → Ветви вычислений → Вывод → Конец.
+ *
+ * @param event событие отрисовки (не используется)
+ */
+void FlowchartWidget::paintEvent(QPaintEvent *)
+{
+    QPainter p(this);
+    p.setRenderHint(QPainter::Antialiasing);
+    p.fillRect(rect(), FC_BG);
+
+    int bw = 260, bh = 52;
+    int dw = 312, dh = 91;
+    int gap = 23;
+
+    int centerX = 150;
+    int rightX  = centerX + 390;
+    int routeX  = rightX + bw/2 + 25;
+
+    int y = 100;
+
+    // 1. Начало
+    int startW = 182, startH = 47;
+    drawRoundedBlock(p, centerX, y, startW, startH, "Начало", FC_START_FILL, FC_START_BDR);
+    int y1 = y + startH/2; y += startH + gap;
+    drawArrowDown(p, centerX, y1, y - bh/2);
+
+    // 2. Ввод
+    drawRoundedBlock(p, centerX, y, bw, bh, "Ввод x, a, b, c", FC_INPUT_FILL, FC_INPUT_BDR);
+    y1 = y + bh/2; y += bh + gap;
+    drawArrowDown(p, centerX, y1, y - dh/2);
+
+    // 3. x < -2 ?
+    int diamondY1 = y;
+    drawDiamond(p, centerX, y, dw, dh, "x < -2 ?", FC_COND_FILL, FC_COND_BDR);
+    drawArrowRight(p, centerX + dw/2, rightX - bw/2, y);
+    drawText(p, centerX + dw/2 + 25, y - 14, 40, 20, "Да");
+    drawRoundedBlock(p, rightX, diamondY1, bw, bh, "f = |x·a| − 2", FC_BR1_FILL, FC_BR1_BDR);
+    int rb1Bottom = diamondY1 + bh/2;
+
+    y1 = y + dh/2; y += dh + gap;
+    drawArrowDown(p, centerX, y1, y - dh/2);
+    drawText(p, centerX + 18, y1 + 10, 40, 20, "Нет");
+
+    // 4. -2 ≤ x < 2 ?
+    int diamondY2 = y;
+    drawDiamond(p, centerX, y, dw, dh, "-2 ≤ x < 2 ?", FC_COND_FILL, FC_COND_BDR);
+    drawArrowRight(p, centerX + dw/2, rightX - bw/2, y);
+    drawText(p, centerX + dw/2 + 25, y - 14, 40, 20, "Да");
+    drawRoundedBlock(p, rightX, diamondY2, bw, bh, "f = b·(x²) + x + 1", FC_BR2_FILL, FC_BR2_BDR);
+    int rb2Bottom = diamondY2 + bh/2;
+
+    y1 = y + dh/2; y += dh + gap;
+    drawArrowDown(p, centerX, y1, y - bh/2);
+    drawText(p, centerX + 18, y1 + 10, 40, 20, "Нет");
+
+    // 5. Ветвь 3
+    int block3CenterY = y;
+    drawRoundedBlock(p, centerX, block3CenterY, bw, bh, "f = |x − 2| + 1·c", FC_BR3_FILL, FC_BR3_BDR);
+    int block3Bottom = block3CenterY + bh/2;
+
+    int mergeY = block3Bottom + gap + 20;
+    drawArrowLine(p, centerX, block3Bottom, centerX, mergeY);
+
+    p.setPen(QPen(FC_ARROW, 2));
+    p.drawLine(rightX + bw/2, rb1Bottom, routeX, rb1Bottom);
+    p.drawLine(routeX, rb1Bottom, routeX, mergeY);
+    p.drawLine(rightX + bw/2, rb2Bottom, routeX, rb2Bottom);
+    p.drawLine(routeX, rb2Bottom, routeX, mergeY);
+    p.drawLine(routeX, mergeY, centerX, mergeY);
+    QPolygon arrowLeft;
+    arrowLeft << QPoint(centerX, mergeY)
+              << QPoint(centerX+10, mergeY-6)
+              << QPoint(centerX+10, mergeY+6);
+    p.setBrush(FC_ARROW);
+    p.drawPolygon(arrowLeft);
+    p.setBrush(Qt::NoBrush);
+
+    y = mergeY + 10;
+
+    // 6. Вывод
+    drawArrowDown(p, centerX, mergeY, y + bh/2 - 4);
+    y += bh/2;
+    drawRoundedBlock(p, centerX, y, bw, bh, "Вывод f(x)", FC_OUT_FILL, FC_OUT_BDR);
+    y1 = y + bh/2; y += bh + gap;
+    drawArrowDown(p, centerX, y1, y - startH/2);
+
+    // 7. Конец
+    drawRoundedBlock(p, centerX, y, startW, startH, "Конец", FC_START_FILL, FC_START_BDR);
+}
+
+// ──────────────────────────────────────────────────────────────────────────
+/**
+ * @brief Конструктор диалога блок-схемы
+ *
+ * Устанавливает стили и создаёт пользовательский интерфейс.
+ *
+ * @param parent родительский виджет
+ */
+SchemaDialog::SchemaDialog(QWidget *parent)
+    : QDialog(parent)
+{
+    setStyleSheet(QString(
+        "QDialog { background-color: #0d1117; color: #e6edf3; font-family: '%1'; }"
+    ).arg(FONT_FAMILY));
+    setupUI();
+}
+
+/// Деструктор диалога блок-схемы
+SchemaDialog::~SchemaDialog() {}
+
+/**
+ * @brief Инициализация пользовательского интерфейса диалога
+ *
+ * Создаёт виджет блок-схемы и кнопку закрытия.
+ */
+void SchemaDialog::setupUI()
+{
+    setWindowTitle("Блок-схема вычислительного процесса");
+
+    resize(760, 795);
+    setFixedSize(760, 795);
+
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins(16, 16, 16, 16);
+    mainLayout->setSpacing(8);
+
+    canvas = new FlowchartWidget(this);
+    mainLayout->addWidget(canvas, 1, Qt::AlignHCenter | Qt::AlignTop);
+
+    closeBtn = new QPushButton("Закрыть", this);
+    closeBtn->setMinimumHeight(36);
+    closeBtn->setStyleSheet(
+        "QPushButton {"
+        "  background-color: #388bfd; color: #ffffff;"
+        "  border: 1px solid rgba(240,246,252,0.1); border-radius: 6px;"
+        "  font-size: 11pt; padding: 4px 20px;"
+        "}"
+        "QPushButton:hover { background-color: #58a6ff; }"
+    );
+    QHBoxLayout *btnRow = new QHBoxLayout();
+    btnRow->addStretch(1);
+    btnRow->addWidget(closeBtn);
+    btnRow->addStretch(1);
+    mainLayout->addLayout(btnRow);
+
+    connect(closeBtn, &QPushButton::clicked, this, &QDialog::accept);
+}

@@ -2,83 +2,98 @@
 <ui version="4.0">
  <class>DashboardForm</class>
  <widget class="QWidget" name="DashboardForm">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>1200</width><height>800</height></rect></property>
+  <property name="styleSheet"><string>background-color: #ffffff;</string></property>
   <layout class="QVBoxLayout" name="mainLayout">
-   <property name="spacing"><number>2</number></property>
-   <property name="leftMargin"><number>0</number></property>
-   <property name="topMargin"><number>0</number></property>
-   <property name="rightMargin"><number>0</number></property>
-   <property name="bottomMargin"><number>2</number></property>
+   <property name="spacing"><number>6</number></property>
+   <property name="leftMargin"><number>10</number></property>
+   <property name="topMargin"><number>5</number></property>
+   <property name="rightMargin"><number>10</number></property>
+   <property name="bottomMargin"><number>5</number></property>
+
+   <!-- ФОРМУЛА -->
    <item>
-    <widget class="QCustomPlot" name="plot" native="true">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-       <horstretch>1</horstretch>
-       <verstretch>1</verstretch>
-      </sizepolicy>
-     </property>
+    <widget class="QLabel" name="labelFormula">
+     <property name="text"><string>f(x) = { x^2 (x&lt;0);  x^3-3x (0&lt;=x&lt;2);  x^4-4x^3+4x^2 (x&gt;=2) },  x in [-10; 10]</string></property>
+     <property name="font"><font><family>Times New Roman</family><pointsize>12</pointsize></font></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+     <property name="maximumSize"><size><width>16777215</width><height>30</height></size></property>
     </widget>
    </item>
+
+   <!-- ПАРАМЕТРЫ -->
    <item>
-    <widget class="QWidget" name="controlPanel" native="true">
-     <property name="maximumHeight"><number>70</number></property>
-     <layout class="QHBoxLayout" name="controlLayout">
-      <property name="spacing"><number>8</number></property>
-      <property name="leftMargin"><number>8</number></property>
-      <property name="topMargin"><number>4</number></property>
-      <property name="rightMargin"><number>8</number></property>
-      <property name="bottomMargin"><number>4</number></property>
-      <item>
-       <widget class="QLabel" name="labelX"><property name="text"><string>X:</string></property></widget>
-      </item>
-      <item>
-       <widget class="QSlider" name="sliderX">
-        <property name="orientation"><enum>Qt::Horizontal</enum></property>
-        <property name="minimum"><number>-300</number></property>
-        <property name="maximum"><number>400</number></property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QDoubleSpinBox" name="spinX">
-        <property name="decimals"><number>2</number></property>
-        <property name="minimum"><double>-3.00</double></property>
-        <property name="maximum"><double>4.00</double></property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="labelA"><property name="text"><string>A:</string></property></widget>
-      </item>
-      <item>
-       <widget class="QSlider" name="sliderA">
-        <property name="orientation"><enum>Qt::Horizontal</enum></property>
-        <property name="minimum"><number>-500</number></property>
-        <property name="maximum"><number>500</number></property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QDoubleSpinBox" name="spinA">
-        <property name="decimals"><number>2</number></property>
-        <property name="minimum"><double>-5.00</double></property>
-        <property name="maximum"><double>5.00</double></property>
-        <property name="value"><double>1.00</double></property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnCheck">
-        <property name="text"><string>Check</string></property>
-        <property name="minimumSize"><size><width>80</width><height>0</height></size></property>
-       </widget>
-      </item>
-     </layout>
+    <layout class="QHBoxLayout" name="paramsLayout">
+     <property name="spacing"><number>8</number></property>
+     <item><widget class="QLabel" name="labelA"><property name="text"><string>a =</string></property></widget></item>
+     <item><widget class="QSlider" name="sliderA"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="minimum"><number>-1000</number></property><property name="maximum"><number>1000</number></property><property name="value"><number>100</number></property></widget></item>
+     <item><widget class="QDoubleSpinBox" name="spinA"><property name="decimals"><number>2</number></property><property name="minimum"><double>-10.00</double></property><property name="maximum"><double>10.00</double></property><property name="value"><double>1.00</double></property></widget></item>
+     <item><widget class="QLabel" name="labelB"><property name="text"><string>b =</string></property></widget></item>
+     <item><widget class="QSlider" name="sliderB"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="minimum"><number>-1000</number></property><property name="maximum"><number>1000</number></property><property name="value"><number>300</number></property></widget></item>
+     <item><widget class="QDoubleSpinBox" name="spinB"><property name="decimals"><number>2</number></property><property name="minimum"><double>-10.00</double></property><property name="maximum"><double>10.00</double></property><property name="value"><double>3.00</double></property></widget></item>
+     <item><widget class="QLabel" name="labelC"><property name="text"><string>c =</string></property></widget></item>
+     <item><widget class="QSlider" name="sliderC"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="minimum"><number>-1000</number></property><property name="maximum"><number>1000</number></property><property name="value"><number>100</number></property></widget></item>
+     <item><widget class="QDoubleSpinBox" name="spinC"><property name="decimals"><number>2</number></property><property name="minimum"><double>-10.00</double></property><property name="maximum"><double>10.00</double></property><property name="value"><double>1.00</double></property></widget></item>
+    </layout>
+   </item>
+
+   <!-- ТАБЛИЦА СЛЕВА + ГРАФИК СПРАВА -->
+   <item>
+    <layout class="QHBoxLayout" name="contentLayout">
+     <property name="spacing"><number>10</number></property>
+     <!-- ТАБЛИЦА (слева, фиксированная ширина) -->
+     <item>
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="minimumWidth"><number>180</number></property>
+       <property name="maximumWidth"><number>220</number></property>
+       <property name="rowCount"><number>11</number></property>
+       <property name="columnCount"><number>2</number></property>
+       <property name="editTriggers"><set>QAbstractItemView::NoEditTriggers</set></property>
+       <property name="selectionMode"><enum>QAbstractItemView::NoSelection</enum></property>
+       <attribute name="horizontalHeaderVisible"><bool>true</bool></attribute>
+       <attribute name="verticalHeaderVisible"><bool>false</bool></attribute>
+       <column><property name="text"><string>x</string></property></column>
+       <column><property name="text"><string>f(x)</string></property></column>
+      </widget>
+     </item>
+     <!-- ГРАФИК (справа, забирает всё оставшееся место) -->
+     <item>
+      <widget class="QFrame" name="frameGraph">
+       <property name="sizePolicy"><sizepolicy hsizetype="Expanding" vsizetype="Expanding"><horstretch>1</horstretch><verstretch>1</verstretch></sizepolicy></property>
+       <property name="minimumSize"><size><width>400</width><height>300</height></size></property>
+       <property name="styleSheet"><string>background-color: #ffffff; border: 1px solid #ddd; border-radius: 5px;</string></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- НИЖНЯЯ ПАНЕЛЬ -->
+   <item>
+    <widget class="QLabel" name="labelParamsVals">
+     <property name="text"><string>a=1.00, b=3.00, c=1.00</string></property>
+     <property name="font"><font><family>Consolas</family><pointsize>10</pointsize></font></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+     <property name="maximumSize"><size><width>16777215</width><height>20</height></size></property>
     </widget>
+   </item>
+
+   <!-- КНОПКА НАЗАД -->
+   <item>
+    <layout class="QHBoxLayout" name="navLayout">
+     <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+     <item>
+      <widget class="QPushButton" name="btnBackNav">
+       <property name="text"><string>4</string></property>
+       <property name="minimumSize"><size><width>44</width><height>44</height></size></property>
+       <property name="maximumSize"><size><width>44</width><height>44</height></size></property>
+       <property name="styleSheet"><string>background-color: #222; color: white; border-radius: 6px; font-size: 20px;</string></property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>QCustomPlot</class>
-   <extends>QWidget</extends>
-   <header>qcustomplot.h</header>
-   <container>1</container>
-  </customwidget>
+  <customwidget><class>QCustomPlot</class><extends>QWidget</extends><header>qcustomplot.h</header><container>1</container></customwidget>
  </customwidgets>
 </ui>

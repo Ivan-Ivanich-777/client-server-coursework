@@ -1,0 +1,6 @@
+# Учётные данные для SMTP Mail.ru
+# email = your@mail.ru (Ваш Mail.ru)
+# key   = app_password_here (Специальный ключ)
+
+email = your@mail.ru
+key   = app_password_here
